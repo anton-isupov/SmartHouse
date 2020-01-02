@@ -1,5 +1,6 @@
 package com.technologies.smart.house.service.data.fetchers;
 
+import com.google.common.collect.Lists;
 import com.technologies.smart.house.model.User;
 import com.technologies.smart.house.repository.UserRepository;
 import graphql.schema.DataFetcher;
@@ -17,6 +18,6 @@ public class AllUsersDataFetcher implements DataFetcher<List<User>> {
 
     @Override
     public List<User> get(DataFetchingEnvironment dataFetchingEnvironment) {
-        return userRepository.findAll();
+        return Lists.newArrayList(userRepository.findAll());
     }
 }
