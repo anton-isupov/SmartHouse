@@ -1,10 +1,9 @@
 package com.technologies.smart.house.service;
 
-import com.technologies.smart.house.model.User;
 import com.technologies.smart.house.repository.UserRepository;
-import com.technologies.smart.house.service.data.fetchers.CreateUserDataFetcher;
-import com.technologies.smart.house.service.data.fetchers.AllUsersDataFetcher;
-import com.technologies.smart.house.service.data.fetchers.UserDataFetcher;
+import com.technologies.smart.house.service.data.fetchers.users.CreateUserDataFetcher;
+import com.technologies.smart.house.service.data.fetchers.users.AllUsersDataFetcher;
+import com.technologies.smart.house.service.data.fetchers.users.UserDataFetcher;
 import graphql.GraphQL;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.idl.RuntimeWiring;

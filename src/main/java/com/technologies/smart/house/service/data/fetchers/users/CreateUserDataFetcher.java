@@ -1,4 +1,4 @@
-package com.technologies.smart.house.service.data.fetchers;
+package com.technologies.smart.house.service.data.fetchers.users;
 
 import com.technologies.smart.house.model.User;
 import com.technologies.smart.house.repository.UserRepository;
