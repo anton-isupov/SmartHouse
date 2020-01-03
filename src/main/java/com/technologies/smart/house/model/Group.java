@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "groups")
@@ -22,5 +24,6 @@ public class Group {
     @Column
     private int permissions;
     @Column
-    private String[] userLogins;
+    @Type(type = "serializable")
+    private List<User> users;
 }

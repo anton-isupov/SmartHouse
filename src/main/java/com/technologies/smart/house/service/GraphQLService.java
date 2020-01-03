@@ -1,9 +1,8 @@
 package com.technologies.smart.house.service;
 
 import com.technologies.smart.house.repository.UserRepository;
-import com.technologies.smart.house.service.data.fetchers.users.CreateUserDataFetcher;
-import com.technologies.smart.house.service.data.fetchers.users.AllUsersDataFetcher;
-import com.technologies.smart.house.service.data.fetchers.users.UserDataFetcher;
+import com.technologies.smart.house.service.data.fetchers.groups.*;
+import com.technologies.smart.house.service.data.fetchers.users.*;
 import graphql.GraphQL;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.idl.RuntimeWiring;
@@ -35,6 +34,20 @@ public class GraphQLService {
     private UserDataFetcher userDataFetcher;
     @Autowired
     private CreateUserDataFetcher createUserDataFetcher;
+    @Autowired
+    private RemoveUserDataFetcher removeUserDataFetcher;
+    @Autowired
+    private GroupDataFetcher groupDataFetcher;
+    @Autowired
+    private AllGroupsDataFetcher allGroupsDataFetcher;
+    @Autowired
+    private CreateGroupDataFetcher createGroupDataFetcher;
+    @Autowired
+    private RemoveGroupDataFetcher removeGroupDataFetcher;
+    @Autowired
+    private EditUserDataFetcher editUserDataFetcher;
+    @Autowired
+    private EditGroupDataFetcher editGroupDataFetcher;
 
     @PostConstruct
     public void loadSchema() throws IOException {
@@ -51,10 +64,17 @@ public class GraphQLService {
                         typeWiring
                                 .dataFetcher("allUsers", allUsersDataFetcher)
                                 .dataFetcher("user", userDataFetcher)
+                                .dataFetcher("allGroups", allGroupsDataFetcher)
+                                .dataFetcher("group", groupDataFetcher)
                 )
                 .type("Mutation", typeWiring ->
                         typeWiring
                                 .dataFetcher("createUser", createUserDataFetcher)
+                                .dataFetcher("removeUser", removeUserDataFetcher)
+                                .dataFetcher("editUser", editUserDataFetcher)
+                                .dataFetcher("createGroup", createGroupDataFetcher)
+                                .dataFetcher("removeGroup", removeGroupDataFetcher)
+                                .dataFetcher("editGroup", editGroupDataFetcher)
                 )
                 .build();
     }

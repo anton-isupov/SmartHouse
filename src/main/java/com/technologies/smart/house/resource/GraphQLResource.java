@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/rest/users")
 @RestController
-public class UserResource {
+public class GraphQLResource {
 
     @Autowired
     GraphQLService graphQLService;
 
     @PostMapping
-    public ResponseEntity<Object> usersExecute(@RequestBody String query) {
+    public ResponseEntity<Object> execute(@RequestBody String query) {
         ExecutionResult execute = graphQLService.getGraphQL().execute(query);
         return new ResponseEntity<>(execute, HttpStatus.OK);
     }

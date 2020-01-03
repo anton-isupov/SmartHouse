@@ -3,6 +3,7 @@ package com.technologies.smart.house.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @NoArgsConstructor
 @Getter
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Table(name= "users")
 @Entity
 @ToString
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
